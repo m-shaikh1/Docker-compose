@@ -7,5 +7,5 @@ WORKDIR /usr/src/app
 COPY . .
 RUN npm install
 
-VOLUME [ "/var/www" ]
+VOLUME [ "/usr/src/app" ]
 CMD [ "node", "server.js" ]
