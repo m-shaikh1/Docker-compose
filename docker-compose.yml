@@ -4,7 +4,6 @@ services:
   api:
     build: 
       context: ./api
-      dockerfile: ./api/Dockerfile
     environment:
       - CONNECTION_STRING=postgres://postgres:postgres@db/postgres_db
     command: node index.js
@@ -16,7 +15,6 @@ services:
   web:
     build: 
       context: ./web
-      dockerfile: ./web/Dockerfile
     environment:
       - API_URL=http://api:3001/data
     command: node index.js
