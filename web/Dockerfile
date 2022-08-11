@@ -1,0 +1,11 @@
+from: node:10-alpine
+
+LABEL author="Mohammed Shaikh"
+EXPOSE 80
+
+COPY . /var/www
+WORKDIR /var/www
+RUN npm install
+
+VOLUME [ "/var/www" ]
+CMD [ "npm", "start" ]

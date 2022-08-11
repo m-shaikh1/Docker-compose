@@ -1,0 +1,43 @@
+version: "1.0"
+
+services:
+  api:
+    build: 
+      context: ./api
+    #command: python app.py
+    volumes:
+     - ./api:/api
+    networks:
+      - private
+
+  web:
+    build: 
+      context: ./web
+    #command: nodemon server.js
+    volumes:
+      - ./web:/web
+    ports:
+      - "80:80"
+    networks:
+      - public
+      - private
+
+  db:
+    image: postgres:11.2-alpine
+    ports: ["5432"]
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+      - "db-config: /etc/postgresql/11.2-alpine /main"
+    networks:
+      - public
+
+volumes:
+  db-data:
+  db-config:
+
+networks:
+  public:
+  private:
