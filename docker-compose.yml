@@ -10,6 +10,8 @@ services:
     command: node index.js
     volumes:
      - ./api:/api
+    ports:
+      - "3001:3001"
     networks:
       - private
 
