@@ -8,4 +8,4 @@ COPY . .
 RUN npm install
 
 VOLUME [ "/usr/src/app" ]
-CMD [ "node", "server.js" ]
+CMD [ "node", "index.js" ]

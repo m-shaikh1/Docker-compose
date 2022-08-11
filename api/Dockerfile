@@ -12,4 +12,4 @@ RUN npm install
 COPY --chown=node:node . .
 
 VOLUME [ "/usr/node/app" ]
-CMD [ "node", "app.js" ]
+CMD [ "node", "index.js" ]
