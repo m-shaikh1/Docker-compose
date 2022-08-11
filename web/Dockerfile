@@ -8,4 +8,4 @@ COPY . .
 RUN npm install
 
 VOLUME [ "/var/www" ]
-CMD [ "npm", "start" ]
+CMD [ "node", "index.js" ]
