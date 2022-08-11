@@ -1,4 +1,4 @@
-from: node:10-alpine
+FROM node:10-alpine
 
 LABEL author="Mohammed Shaikh"
 EXPOSE 3001
