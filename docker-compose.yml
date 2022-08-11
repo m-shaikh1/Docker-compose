@@ -4,6 +4,7 @@ services:
   api:
     build: 
       context: ./api
+      dockerfile: ./api/Dockerfile
     #command: python app.py
     volumes:
      - ./api:/api
@@ -13,6 +14,7 @@ services:
   web:
     build: 
       context: ./web
+      dockerfile: ./web/Dockerfile
     #command: nodemon server.js
     volumes:
       - ./web:/web
