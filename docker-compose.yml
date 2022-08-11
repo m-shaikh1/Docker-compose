@@ -4,6 +4,7 @@ services:
   api:
     build: 
       context: ./api
+    container_name: api
     environment:
       - CONNECTION_STRING=postgres://postgres:postgres@db/postgres_db
     command: node index.js
@@ -15,6 +16,7 @@ services:
   web:
     build: 
       context: ./web
+    container_name: web
     environment:
       - API_URL=http://api:3001/data
     command: node index.js
@@ -29,6 +31,7 @@ services:
   db:
     image: postgres:11.2-alpine
     ports: ["5432"]
+    container_name: db
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
