@@ -1,9 +1,10 @@
 from: node:10-alpine
 
 LABEL author="Mohammed Shaikh"
+EXPOSE 3001
 
-COPY . /var/www
-WORKDIR /var/www
+WORKDIR /usr/node/app
+COPY . .
 RUN npm install
 
 VOLUME [ "/var/www" ]

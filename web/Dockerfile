@@ -3,9 +3,9 @@ from: node:10-alpine
 LABEL author="Mohammed Shaikh"
 EXPOSE 80
 
-COPY . /var/www
-WORKDIR /var/www
+WORKDIR /usr/src/app
+COPY . .
 RUN npm install
 
 VOLUME [ "/var/www" ]
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]
