@@ -11,5 +11,5 @@ USER node
 RUN npm install
 COPY --chown=node:node . .
 
-VOLUME [ "/usr/node/app" ]
-CMD [ "node", "index.js" ]
+VOLUME [ "/home/node/app" ]
+CMD [ "npm", "start" ]

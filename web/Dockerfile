@@ -1,11 +1,11 @@
 FROM node:10-alpine
 
 LABEL author="Mohammed Shaikh"
-EXPOSE 80
+EXPOSE 3000
 
-WORKDIR /usr/src/app
+WORKDIR /var/www
 COPY . .
 RUN npm install
 
-VOLUME [ "/usr/src/app" ]
-CMD [ "node", "index.js" ]
+VOLUME [ "/var/www" ]
+CMD [ "npm", "start" ]
