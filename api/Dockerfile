@@ -1,6 +1,6 @@
 FROM node:10-alpine
 
-ENV API_URL=${API_URL}
+ENV CONNECTION_STRING=${CONNECTION_STRING}
 LABEL author="Mohammed Shaikh"
 EXPOSE 3001
 

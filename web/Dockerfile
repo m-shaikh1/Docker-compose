@@ -1,5 +1,6 @@
 FROM node:10-alpine
 
+ENV API_URL=${API_URL}
 LABEL author="Mohammed Shaikh"
 EXPOSE 3000
 
