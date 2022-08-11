@@ -5,7 +5,9 @@ services:
     build: 
       context: ./api
       dockerfile: ./api/Dockerfile
-    #command: python app.py
+    environment:
+      - CONNECTION_STRING=postgres://postgres:postgres@db/postgres_db
+    command: node index.js
     volumes:
      - ./api:/api
     networks:
@@ -15,11 +17,13 @@ services:
     build: 
       context: ./web
       dockerfile: ./web/Dockerfile
-    #command: nodemon server.js
+    environment:
+      - API_URL=http://api:3001/data
+    command: node index.js
     volumes:
       - ./web:/web
     ports:
-      - "80:80"
+      - "80:3000"
     networks:
       - public
       - private
@@ -30,15 +34,11 @@ services:
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "postgres_db"
     volumes:
-      - "db-data:/var/lib/postgresql/data"
-      - "db-config: /etc/postgresql/11.2-alpine /main"
+      - "/home/ubuntu/docker-compose-belt2/sql_scripts/:/docker-entrypoint-initdb.d"
     networks:
       - public
-
-volumes:
-  db-data:
-  db-config:
 
 networks:
   public:
